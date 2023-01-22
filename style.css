@@ -1,0 +1,20 @@
+ul li {
+          margin: 13px;
+          padding: 5px;
+
+}
+
+nav {
+          background-color: rgb(190, 193, 222);
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          font-weight: bold;
+          text-shadow: 1px 1px 1px 1px snow;
+}
+
+li a {
+
+          color: rgb(36, 35, 33);
+}
+.nav-logo{
+          display: inline-block;
+}
