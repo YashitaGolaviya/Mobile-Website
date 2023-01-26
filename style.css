@@ -9,20 +9,8 @@
           font-weight: 500;
           font-family: 'Ubuntu', sans-serif;font-size: large;
 }
-/* .navbar{
-
-          background-color: rgb(219, 167, 225);
+.brand{
+          margin: 20px;
+          padding: 10px;
+          border: 1px solid goldenrod;
 }
-nav {
-          font-family: Georgia, 'Times New Roman', Times, serif;
-          font-weight: bold;
-          font-size: 18px; 
-          text-shadow: 1px 1px 1px 1px snow;
-}
-li a {
-
-          color: rgb(36, 35, 33);
-}
-.nav-logo{
-          display: inline-block;
-}          */
