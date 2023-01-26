@@ -4,8 +4,9 @@
          
 }
 .dropdown-menu{
-          color: rgb(49, 3, 49);
-          background-color: rgb(244, 172, 239);
+          color: rgb(20, 63, 2);
+          /* background-color: rgb(244, 172, 239); */
+          background-color: rgb(198, 236, 200); 
           font-weight: 500;
           font-family: 'Ubuntu', sans-serif;font-size: large;
 }
