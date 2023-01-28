@@ -1,12 +1,12 @@
 .nav-link{
-          color: rgb(49, 3, 49);
+          color: rgb(19, 7, 19);
           font-weight: bold;
          
 }
 .dropdown-menu{
           color: rgb(20, 63, 2);
           /* background-color: rgb(244, 172, 239); */
-          background-color: rgb(198, 236, 200); 
+          background-color: rgb(199, 236, 201); 
           font-weight: 500;
           font-family: 'Ubuntu', sans-serif;font-size: large;
 }
@@ -18,4 +18,7 @@
 }
  .brand img-hover-zoom--basic img {
           transition: transform .5s ease;
+}
+.heading{
+          text-shadow: 1px 1px  rgb(126, 122, 122);
 }
