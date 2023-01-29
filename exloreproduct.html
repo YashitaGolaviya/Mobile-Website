@@ -16,43 +16,116 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light justify-content-end"
-        style="background-color: rgb(204, 239, 206); font-family: 'Ubuntu', sans-serif;font-size: large;">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="container-fluid text-center">
-            <a class="navbar-brand mx-auto pr-4" href="/"><img src="image/yglogotst.jpg"
-                    class="rounded rounded-circle mx-auto" alt="" width="80px"></a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item  mx-auto">
-                        <a class="nav-link active mx-3" aria-current="page" href="/index.html"
-                            style="color: rgb(101, 19, 101);">Home</a>
-                    </li>
-                    <li class="nav-item mx-3 dropdown">
-                        <a class="nav-link dropdown-toggle" href="/catalog.html" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" style="color: rgb(101, 19, 101);">Catalog</a>
-                        <div class="dropdown-menu rounded w-25 mx-auto" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Mobile</a>
-                            <a class="dropdown-item" href="#">iPad & Tablet</a>
-                            <a class="dropdown-item" href="#">Laptop</a>
+    style="background-color: rgb(204, 239, 206); font-family: 'Ubuntu', sans-serif;font-size: large;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container-fluid text-center">
+        <a class="navbar-brand mx-auto pr-4" href="/index.html"><img src="image/yglogotst.jpg"
+                class="rounded rounded-circle mx-auto" alt="" width="80px"></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item  mx-auto">
+                    <a class="nav-link active mx-3" aria-current="page" href="/index.html"
+                        style="color: rgb(101, 19, 101);">Home</a>
+                </li>
+                <li class="nav-item mx-3 dropdown">
+                    <a class="nav-link dropdown-toggle" href="/catalog.html" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: rgb(101, 19, 101);">Catalog</a>
+                    <div class="dropdown-menu rounded w-25 mx-auto" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/exloreproduct.html?dataType=mobile">Mobile</a>
+                        <a class="dropdown-item" href="/exloreproduct.html?dataType=iPad and Tablet">iPad & Tablet</a>
+                        <a class="dropdown-item" href="/exloreproduct.html?dataType=Laptop">Laptop</a>
+                    </div>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/exloreproduct.html?dataType=Accessories" style="color: rgb(101, 19, 101);">Accessories</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/exloreproduct.html" style="color: rgb(101, 19, 101);">Explore Products</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/aboutUs.html" style="color: rgb(101, 19, 101);">About Us</a>
+                </li>
+            </ul>
+            <div class="ml-auto">
+                <a href="signin"><i class="fa fa-user-circle text-dark mx-2" style="font-size:36px"></a></i>
+                <i class="fa fa-shopping-cart mx-2" style="font-size:36px"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+          <div class="row" id="productDiv">
+
+          </div>
+        </div>
+      </section>
+
+</body>
+<script>
+     if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+      }
+  else{
+    xmlhttp=new ActiveXObject();
+  }
+  xmlhttp.open('GET','data/productData.xml',false)
+  xmlhttp.send();
+  xmldoc = xmlhttp.responseXML 
+  productDiv = document.getElementById('productDiv')  
+  urlStr = window.location.search;
+  urlParam = new URLSearchParams(urlStr);
+  productCategory = urlParam.get('dataType');
+  x= productCategory==null?'All Products':productCategory;
+  for(i=0;i<xmldoc.getElementsByTagName('product').length;i++){
+    if(xmldoc.getElementsByTagName('category')[i].childNodes[0].nodeValue==productCategory || xmldoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue==productCategory|| x=='All Products')
+    {console.log('es');
+    productDiv.innerHTML+=
+    `
+    <div class="col-md-8 col-lg-6 col-xl-4 mb-3 mx-auto">
+        <div class="card" style="border-radius: 15px;">
+            <div class="mx-auto m-2">
+                <img src="image/${xmldoc.getElementsByTagName('image')[i].childNodes[0].nodeValue}" width='300px' height='300px' style='object-fit:contain' alt="Laptop" />
+            </div>
+            <div class="card-body pb-0">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span class="d-inline-block text-truncate" style="max-width: 200px;">
+                            <a href="#!" class="text-dark">${xmldoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}</a>
+                        </span> 
+                        <p class="small text-muted">${xmldoc.getElementsByTagName('category')[i].childNodes[0].nodeValue}</p>
+                    </div>
+                    <div>
+                        <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="/accessories.html" style="color: rgb(101, 19, 101);">Accessories</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="/exloreproduct.html" style="color: rgb(101, 19, 101);">Explore Products</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="/aboutUs.html" style="color: rgb(101, 19, 101);">About Us</a>
-                    </li>
-                </ul>
-                <div class="ml-auto">
-                    <a href="signin"><i class="fa fa-user-circle text-dark mx-2" style="font-size:36px"></a></i>
-                    <i class="fa fa-shopping-cart mx-2" style="font-size:36px"></i>
+                        <p class="small text-muted">Rated 4.0/5</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-0" />
+            <div class="card-body pb-0">
+                <div class="d-flex justify-content-between">
+                    <p><a href="#!" class="text-dark"><s>Rs.${xmldoc.getElementsByTagName('mrp')[i].childNodes[0].nodeValue}</s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Rs.${xmldoc.getElementsByTagName('offerprice')[i].childNodes[0].nodeValue}</a></p>
+                    <!-- <p class="text-dark">#### 8787</p> -->
+                </div>
+            </div>
+            <hr class="my-0" />
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+                    <button type="button" class="btn btn-primary d-block mx-auto">Buy now</button>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+    `}
+  }
+</script>
+</html>

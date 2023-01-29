@@ -34,13 +34,13 @@
                         <a class="nav-link dropdown-toggle" href="/catalog.html" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" style="color: rgb(101, 19, 101);">Catalog</a>
                         <div class="dropdown-menu rounded w-25 mx-auto" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Mobile</a>
-                            <a class="dropdown-item" href="#">iPad & Tablet</a>
-                            <a class="dropdown-item" href="#">Laptop</a>
+                            <a class="dropdown-item" href="/exloreproduct.html?dataType=mobile">Mobile</a>
+                            <a class="dropdown-item" href="/exloreproduct.html?dataType=iPad and Tablet">iPad & Tablet</a>
+                            <a class="dropdown-item" href="/exloreproduct.html?dataType=Laptop">Laptop</a>
                         </div>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link" href="/accessories.html" style="color: rgb(101, 19, 101);">Accessories</a>
+                        <a class="nav-link" href="/exloreproduct.html?dataType=Accessories" style="color: rgb(101, 19, 101);">Accessories</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link" href="/exloreproduct.html" style="color: rgb(101, 19, 101);">Explore Products</a>
@@ -97,38 +97,8 @@
         <h1 class="text-dark text-center heading">
             Shop by Brands
         </h1>
-        <div class="row justify-content-center">
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/milogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/onepluslogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/Samsung_Logo_PNG.png" class="mx-auto my-auto w-100 h-100 p-3"
-                    style="object-fit: contain;" alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/applelogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/nokia logo.jpg" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/oppologo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/vivo logo2.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-                <img src="image/boat_logo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;"
-                    alt="">
-            </div>
+        <div class="row justify-content-center" id="brandDiv">
+            
         </div>
     </div>
     <br>
@@ -199,8 +169,17 @@
   else{
     xmlhttp=new ActiveXObject();
   }
-  xmlhttp.open('GET','data/brandlogo.json',false)
-  xmlhttp.send();
+  xmlhttp.open('GET','brands.xml',false)
+  xmlhttp.send();//aya apde req send krvi
+  xmldoc = xmlhttp.responseXML 
+  branddiv = document.getElementById('brandDiv')  
+  for(i=0;i<xmldoc.getElementsByTagName('phoneBrand').length;i++){
+    branddiv.innerHTML+=
+    `<div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+        <img src="image/${xmldoc.getElementsByTagName('Brandlogo')[i].childNodes[0].nodeValue}" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+    </div>
+    `
+  }
 
 </script>
 
