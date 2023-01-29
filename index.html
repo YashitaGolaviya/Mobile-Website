@@ -170,7 +170,7 @@
     xmlhttp=new ActiveXObject();
   }
   xmlhttp.open('GET','brands.xml',false)
-  xmlhttp.send();//aya apde req send krvi
+  xmlhttp.send();
   xmldoc = xmlhttp.responseXML 
   branddiv = document.getElementById('brandDiv')  
   for(i=0;i<xmldoc.getElementsByTagName('phoneBrand').length;i++){
