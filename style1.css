@@ -1,32 +1,18 @@
-.nav-link{
-          color: rgb(19, 7, 19);
-          font-weight: bold;
-         
-}
-.dropdown-menu{
-          color: rgb(20, 63, 2);
-          /* background-color: rgb(244, 172, 239); */
-          background-color: rgb(199, 236, 201); 
-          font-weight: 500;
-          font-family: 'Ubuntu', sans-serif;font-size: large;
-}
-.brand{
-          border-radius: 4px;
-          margin: 20px;
-          padding: 2px;
-          /* border: 1px solid goldenrod; */
-}
- .brand img-hover-zoom--basic img {
-          transition: transform .5s ease;
-}
-.heading{
-          text-shadow: 1px 1px  rgb(126, 122, 122);
-}
-/* Footer css  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
 * {
   font-family: Open Sans;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .footer-distributed{
