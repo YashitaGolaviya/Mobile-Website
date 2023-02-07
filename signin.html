@@ -14,6 +14,7 @@
         <link rel="icon" type="image/x-icon" href="image/yglogo.jpg">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <script src="work.js"></script>
 </head>
         <style>
           /* html, body {
@@ -155,13 +156,14 @@ style="background-color: rgb(204, 239, 206); font-family: 'Ubuntu', sans-serif;f
             <h1 class="text-center" id="signupheader">Sign Up</h3>
         <div class="info">
           <input class="fname" type="text" name="name" placeholder="Your name" id="name">
-          <input type="text" name="name" placeholder="Email" id="emial">
+          <input type="text" name="name" placeholder="Email" id="email">
           <input type="text" name="name" placeholder="Phone number" id="phoneno">
           <input type="password" name="password" placeholder="Password" id="psw">
         </div>
-        <button class="btn btn-primary" type="submit" href="/">Submit</button>
+        <button class="btn btn-primary" type="submit" onclick="func()">Submit</button>
         <p class="text-center pt-2" id="signupmsg">Don't have account? <a href="signin.html?activity=signup" class="text-decoration-none">Sign Up</a></p>
         <p class="text-center pt-2" id="loginmsg">Already have account? <a href="signin.html" class="text-decoration-none">Log In</a></p>
+        <h3 id="loginmsg" class="text-center d-none" >Logged In Successfully....</h3>
       </form>
     </div>
   <footer class="text-center text-lg-start text-white p-2" style="background-color: #3e475e">

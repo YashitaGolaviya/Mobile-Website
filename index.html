@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="jquery-3.6.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
@@ -94,23 +95,47 @@
                 <!-- <video controls muted autoplay loop src="image/v3.mp4" style="height: 350px;width: 100%;">
                     <track default kind="subtitles" srclang="en" src="/image/v3.mp4" />
                   </video> -->
-                  <div class="bg-video-wrap" style=" position: relative;overflow: hidden;width: 100%;height: 100vh;">
-                    <video muted controls autoplay loop src="/image/v6.mp4" alt="" style="width: 100%;height:500px;z-index: 1;opacity: 0.8;">
+                <div class="bg-video-wrap" style=" position: relative;overflow: hidden;width: 100%;height: 100vh;">
+                    <video muted controls autoplay loop src="/image/v6.mp4" alt="" style="width: inherit;height:550px;z-index: 1;opacity: 0.8;object-fit: fill;">
                     </video>
-                    <div class="overlay" style=" width: 100%;height: 100vh;position: absolute;top: 0;left: 0;">
-                        <button class="btn btn-outline-primary">Buy Now</button>
+                    <div class="overlay" style=" width: 1300px;height:500px;position: absolute;top:40%;left: 4%;">
+                        <a href="exloreproduct.html"><button class="btn btn-outline-info btn-lg" style="color:rgb(95, 92, 92);"><b>Buy Now ></b></button></a>
                     </div>
                   <!-- <video muted controls autoplay loop src="/image/v6.mp4" alt="" style="height: 100%; width: 100%;pointer-events: none;"></video> -->
-                </div>
-        </div>
-    </div><br>
-    <div class="container mt-2 p-3 mx-auto" id="brands">
+                </div> 
+            </div>
+        </div> 
+    </div>
+    <div class="container mx-auto" id="brands">
         <h1 class="text-dark text-center heading">
-            Shop by Brands
+            Our Brands
         </h1>
-        <div class="row justify-content-center" id="brandDiv">
-            
-        </div>
+         <div class="row justify-content-center" id="brandDiv">
+        <!--    <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/milogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/onepluslogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/Samsung_Logo_PNG.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/applelogo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/nokia logo.jpg" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/oppologo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/vivo logo2.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <img src="image/boat_logo.png" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+            </div>-->
+        </div> 
     </div>
     <br>
 
@@ -174,23 +199,38 @@
     </footer>
 </body>
 <script>
-    if(window.XMLHttpRequest){
-        xmlhttp=new XMLHttpRequest();
-      }
-  else{
-    xmlhttp=new ActiveXObject();
-  }
-  xmlhttp.open('GET','brands.xml',false)
-  xmlhttp.send();
-  xmldoc = xmlhttp.responseXML 
-  branddiv = document.getElementById('brandDiv')  
-  for(i=0;i<xmldoc.getElementsByTagName('phoneBrand').length;i++){
-    branddiv.innerHTML+=
-    `<div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
-        <img src="image/${xmldoc.getElementsByTagName('Brandlogo')[i].childNodes[0].nodeValue}" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
-    </div>
-    `
-  }
+$(document).ready(function () {
+//   alert('jquery')
+console.log('read');
+  // FETCHING DATA FROM JSON FILE
+  $.getJSON("data/brandlogo.json", 
+          function (data) {
+            console.log(data.logo.length);
+            branddiv = document.getElementById('brandDiv')  
+            for(i=0;i<data.logo.length;i++){
+            branddiv.innerHTML+= 
+            `<div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+                <a href="/exloreproduct.html?dataType=${data.logo[i].brandName}"><img src="image/${data.logo[i].image}" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt=""> </a>
+            </div>`
+            }})
+        })
+//     if(window.XMLHttpRequest){
+//         xmlhttp=new XMLHttpRequest();
+//       }
+//   else{
+//     xmlhttp=new ActiveXObject();
+//   }
+//   xmlhttp.open('GET','brands.xml',false)
+//   xmlhttp.send();
+//   xmldoc = xmlhttp.responseXML 
+//   branddiv = document.getElementById('brandDiv')  
+//   for(i=0;i<xmldoc.getElementsByTagName('phoneBrand').length;i++){
+//     branddiv.innerHTML+=
+//     `<div class="col-lg-2 col-md-4 col-6 brand border rounded p-2 w-100" style="min-width: 200px;height: 200px;">
+//         <img src="image/${xmldoc.getElementsByTagName('Brandlogo')[i].childNodes[0].nodeValue}" class="mx-auto my-auto w-100 h-100 p-3" style="object-fit: contain;" alt="">
+//     </div>
+//     `
+//   }
 
 </script>
 

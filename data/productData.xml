@@ -304,4 +304,15 @@
                     <description>boAt Flash RTL Edition Smartwatch with Activity Tracker (33mm LCD Display, IP68 Water Resistant, Moon Red Strap) Band Watch special FireBoat . </description>
                     <qty>2</qty>
           </product>
+          <product>
+                    <id>27</id>
+                    <category>mobile</category>
+                    <brand>Samssung</brand>
+                    <name>Samsung S23</name>
+                    <mrp>99,999</mrp>
+                    <offerprice>88,763</offerprice>
+                    <image>Samsungs23.webp</image>
+                    <description>Make it a night to remember with stunning Nightography. Night Mode lets you capture brilliant selfies no matter the lighting.Smoothly switch between apps and live life at full throttle with our fastest processor ever.</description>
+                    <qty>23</qty>
+          </product>
 </products>

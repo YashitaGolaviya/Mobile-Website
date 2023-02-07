@@ -85,7 +85,7 @@
   productCategory = urlParam.get('dataType');
   x= productCategory==null?'All Products':productCategory;
   for(i=0;i<xmldoc.getElementsByTagName('product').length;i++){
-    if(xmldoc.getElementsByTagName('category')[i].childNodes[0].nodeValue==productCategory || xmldoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue==productCategory|| x=='All Products')
+    if(xmldoc.getElementsByTagName('category')[i].childNodes[0].nodeValue==productCategory || xmldoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue==productCategory || xmldoc.getElementsByTagName('name')[i].childNodes[0].nodeValue==productCategory|| x=='All Products')
     {console.log('es');
     productDiv.innerHTML+=
     `
@@ -124,7 +124,7 @@
             <hr class="my-0" />
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
-                    <button type="button" class="btn btn-primary d-block mx-auto">Buy now</button>
+                    <button class='btn btn-outline-primary d-block mx-auto'><a class='text-decoration-none text-dark'>Buy now</a></button>
                 </div>
             </div>
         </div>
