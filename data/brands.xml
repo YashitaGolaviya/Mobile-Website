@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- mi 1+ samsung apple nokia oppo vivo boat -->
-<brands>
+<!-- <brands>
 <phoneBrand>
         <id>1</id>
         <name>Mi</name>
@@ -24,7 +24,7 @@
 <phoneBrand>
         <id>5</id>
         <name>Nokia</name>
-        <Brandlogo>nokia logo.jpg</Brandlogo>
+        <Brandlogo>nokialogo.png</Brandlogo>
 </phoneBrand>
 <phoneBrand>
         <id>6</id>
@@ -41,4 +41,4 @@
         <name>Boat</name>
         <Brandlogo>boat_logo.png</Brandlogo>
 </phoneBrand>
-</brands>
+</brands> -->
