@@ -1,11 +1,15 @@
 #stic {
-	background-image: url("image/homeimg.jpeg");
+	background-image: url("image/homeimg3.jpeg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	position: sticky;
 	height: 100%;
 	width: 100%;
+	opacity: 7;
         }
+        /* .accimg{
+	background-image: url('image/accimg.jpg');
+        } */
 .nav-bar::before {
 	position: absolute;
 	content: "";
